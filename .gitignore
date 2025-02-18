@@ -1,0 +1,7 @@
+.vscode/
+backup/
+data/
+old/
+
+todo.txt
+secret.json
