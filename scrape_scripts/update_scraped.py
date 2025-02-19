@@ -17,7 +17,7 @@ if __name__ == '__main__':
             user_agent = auth['user_agent']
         )
 
-        data_dir = './data'
+        data_dir = '../data'
         scrape_to_fix = '2025-01-16_12-17.csv'
 
         scrape_path = os.path.join(data_dir, scrape_to_fix)

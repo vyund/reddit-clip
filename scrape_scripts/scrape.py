@@ -49,8 +49,8 @@ def fetch_image_posts(scrape_csv, subreddit_name, max_file_size, limit=None, red
                     # TODO: Make dictionary of other possible info to scrape and make as argument --> dictionary of all possible attr?
                     save_data_to_csv([{
                             'Sample_ID': sample_id,
-                            'Title': submission.title,
-                            'Image_Filename': image_filename,
+                            'Title': submission.title.replace('\n', ' ').replace('  ', ' '), # Fix newlines in submission title
+                            'Image_Filename': image_filename.replace('../', ''), # Temp fix after moving scrape scripts into a subdir
                             'Url': submission.permalink,
                             'Author': submission.author.name,
                             'NSFW': submission.over_18
@@ -124,7 +124,9 @@ if __name__ == '__main__':
         time_filter = 'month'
         limit = None
 
-        data_dir = './data'
+        data_dir = '../data'
+        os.makedirs(data_dir, exist_ok=True)
+
         export_dir = os.path.join(data_dir, scrape_id)
 
         scrape_csv = '{}.csv'.format(scrape_id)

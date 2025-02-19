@@ -1,7 +1,8 @@
 .vscode/
 backup/
 data/
+master_data/
 old/
 
 todo.txt
-secret.json
+scrape_scripts/secret.json
